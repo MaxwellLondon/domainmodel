@@ -12,6 +12,8 @@ class JobTests: XCTestCase {
 
     func testCreateHourlyJob() {
         let job = Job(title: "Janitor", type: Job.JobType.Hourly(15.0))
+    
+        
         XCTAssert(job.calculateIncome(10) == 150)
         XCTAssert(job.calculateIncome(20) == 300)
     }
@@ -29,8 +31,9 @@ class JobTests: XCTestCase {
 
     func testHourlyRaise() {
         let job = Job(title: "Janitor", type: Job.JobType.Hourly(15.0))
+        
         XCTAssert(job.calculateIncome(10) == 150)
-
+        
         job.raise(byAmount: 1.0)
         XCTAssert(job.calculateIncome(10) == 160)
 
